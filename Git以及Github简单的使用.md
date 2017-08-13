@@ -51,7 +51,7 @@ $ git add .
 
 用法与结果：
 
-```git
+```shell
 11959@SimonXu_Dell MINGW64 /e/test (master)
 $ git commit -a -m "test"
 [master (root-commit) f70c375] test
@@ -284,3 +284,4 @@ $ git remote add test https://github.com/xyx518809/test.git
 * Git的常用几个命令多用几次就记住了
 * git和github连接比较简单的，网上教程也比较多
 * 正常git的工作流程为，pull→edit→add→commit→push→pull→edit→add→commit→push→……
+
