@@ -153,13 +153,17 @@ https://github.com/xyx518809/test.git
 $ git remote add test https://github.com/xyx518809/test.git
 ```
 
-这样，我的本地库就和远程库连接起来了。连接后可以进行pull和push，但是第一次push会要求你输入账号和密码
+这样，我的本地库[e:/test]()就和远程库https://github.com/xyx518809/test.git连接起来了。连接后可以进行pull和push，但是第一次push会要求你输入账号和密码
 
 ​	SSH的配置会比较复杂，不过安全性会高一点官网上提供了[配置方法](https://help.github.com/articles/connecting-to-github-with-ssh/)，大家可以试一试。
 
 ## 实例
 
-* 移动地址到本地仓库
+* 移动地址到本地仓库：
+
+  ```shell
+  $ cd e:/micloud/github/test
+  ```
 
   ```shell
   11959@SimonXu_Dell MINGW64 ~
@@ -170,7 +174,11 @@ $ git remote add test https://github.com/xyx518809/test.git
   ```
 
 
-* 初始化Git
+* 初始化Git：
+
+  ```shell
+  $ git init
+  ```
 
   ```shell
   11959@SimonXu_Dell MINGW64 /e/micloud/github/test
@@ -178,7 +186,12 @@ $ git remote add test https://github.com/xyx518809/test.git
   Initialized empty Git repository in E:/MiCloud/GitHub/test/.git/
   ```
 
-* 连接github上的test，并确认
+* 连接github上的test，并确认：
+
+  ```shell
+  $ git remote add test https://github.com/xyx518809/test.git
+  $ git remote -v
+  ```
 
   ```shell
   11959@SimonXu_Dell MINGW64 /e/micloud/github/test (master)
@@ -190,7 +203,11 @@ $ git remote add test https://github.com/xyx518809/test.git
   test    https://github.com/xyx518809/test.git (push)
   ```
 
-*  从远程仓库pull文件到本地仓库
+*  从远程仓库pull文件到本地仓库：
+
+  ```shell
+  $ git pull test master
+  ```
 
   ```shell
   11959@SimonXu_Dell MINGW64 /e/micloud/github/test (master)
@@ -206,8 +223,64 @@ $ git remote add test https://github.com/xyx518809/test.git
 
   ![pull file](pullfile.jpg)
 
-*  在本地编辑文件
+*  在本地编辑文件：
 
-*  
+  ![edit file](editfile.jpg)
 
-* ​
+*  本地仓库中add到缓存区：
+
+  ```shell
+  $ git add .
+  ```
+
+  ```shell
+  11959@SimonXu_Dell MINGW64 /e/micloud/github/test (master)
+  $ git add .
+  warning: LF will be replaced by CRLF in Git以及Github简单的使用.md.
+  The file will have its original line endings in your working directory.
+  ```
+
+* 本地库中commit更新：
+
+  ```shell
+  $ git commit -a -m "update"
+  ```
+
+  ```shell
+  11959@SimonXu_Dell MINGW64 /e/micloud/github/test (master)
+  $ git commit -a -m "update"
+  [master 8844ab1] update
+   6 files changed, 213 insertions(+)
+   create mode 100644 "Git\344\273\245\345\217\212Github\347\256\200\345\215\225\347\232\204\344\275\277\347\224\250.md"
+   create mode 100644 "Git\345\256\211\350\243\205.png"
+   create mode 100644 editfile.JPG
+   create mode 100644 gitbash.jpg
+   create mode 100644 pullfile.JPG
+   create mode 100644 "\347\263\273\347\273\237\344\275\215\346\225\260.JPG"
+  ```
+
+* 从本地库中push到远程仓库中：
+
+  ```shell
+  $ git push test master
+  ```
+
+  ```shell
+  11959@SimonXu_Dell MINGW64 /e/micloud/github/test (master)
+  $ git push test master
+  Counting objects: 8, done.
+  Delta compression using up to 8 threads.
+  Compressing objects: 100% (8/8), done.
+  Writing objects: 100% (8/8), 174.53 KiB | 13.42 MiB/s, done.
+  Total 8 (delta 0), reused 0 (delta 0)
+  To https://github.com/xyx518809/test.git
+     c51717b..8844ab1  master -> master
+  ```
+
+  ![pushfile](pushfile.jpg) 
+
+## 总结
+
+* Git的常用几个命令多用几次就记住了
+* git和github连接比较简单的，网上教程也比较多
+* 正常git的工作流程为，pull→edit→add→commit→push→pull→edit→add→commit→push→……
